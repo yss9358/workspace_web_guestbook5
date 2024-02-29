@@ -2,13 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="guestbook">
 	<!-- 쿼리문 작성 -->
+	<resultMap id="resultMapGbcVo" type="GbcVo">
+		<result column="no" property="no" />
+		<result column="name" property="name" />
+		<result column="password" property="password" />
+		<result column="content" property="content" />
+		<result column="reg_date" property="regDate" />
+	</resultMap>
 	
-	<select id="list" resultType="com.javaex.vo.GbcVo">
+	
+	
+	<select id="list" resultMap="resultMapGbcVo">
 		select	no,
 				name,
 		        password,
 		        content,
-		        reg_date regDate
+		        reg_date
 		from guestbook
 	</select>
 	
